@@ -11,7 +11,7 @@ http2app.use((req, res) => {
     const reqPath = req.url === '/' ? '/index.html' : req.url
     if (req.url === '/') {
         for(let i = 1; i <= 100; i++) {
-            const assetPath = `/logosmall${i}.png`;
+            const assetPath = `/pxlogo${i}.png`;
             const file = getFileHttp1(assetPath);
             const stream = res.push(assetPath, {
                 request: { accept: '*/*' },

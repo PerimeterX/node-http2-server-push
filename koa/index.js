@@ -18,7 +18,7 @@ http2app.use(async (ctx, next) => {
 
     if (reqPath === '/index.html') {
         for(let i = 1; i <= 100; i++) {
-            push(ctx.res.stream, `/logosmall${i}.png`)
+            push(ctx.res.stream, `/pxlogo${i}.png`)
         }
     }
     ctx.res.stream.respondWithFD(file.fileDescriptor, file.headers)

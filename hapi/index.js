@@ -38,7 +38,7 @@ const getHttp2Server = async () => {
             handler: (request, h) => {
                 const response = h.file('assets/index.html');
                 for(let i=1; i<=100; i++) {
-                    h.push(response, `/logosmall${i}.png`);
+                    h.push(response, `/pxlogo${i}.png`);
                 }
                 return response;
             }

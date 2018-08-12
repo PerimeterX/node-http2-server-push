@@ -18,7 +18,7 @@ const onRequestHttp2 = (req, res) => {
 
     if (reqPath === '/index.html') {
         for(let i = 1; i <= 100; i++) {
-            push(res.stream, `/logosmall${i}.png`)
+            push(res.stream, `/pxlogo${i}.png`)
         }
     }
     res.stream.respondWithFD(file.fileDescriptor, file.headers)
