@@ -4,6 +4,7 @@ const { certificate, getFiles, getFileHttp1 } = require('../shared');
 
 const { HTTP2_HEADER_PATH } = Http2.constants
 
+// HTTP1
 const onRequestHttp1 = (req, res) => {
     const file = getFileHttp1(req.url)
     res.writeHead(200, { 'Content-Type': file.contentType });
@@ -12,12 +13,15 @@ const onRequestHttp1 = (req, res) => {
 
 const files = getFiles();
 
+// HTTP2
 const onRequestHttp2 = (req, res) => {
+    // res.stream is the Duplex stream
     const reqPath = req.url === '/' ? '/index.html' : req.url
     const file = files.get(reqPath)
 
     if (reqPath === '/index.html') {
         for(let i = 1; i <= 100; i++) {
+            // Server push feature
             push(res.stream, `/pxlogo${i}.png`)
         }
     }

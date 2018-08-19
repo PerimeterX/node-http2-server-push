@@ -6,7 +6,7 @@ cd ./certificate && openssl req -x509 -out localhost.crt -keyout localhost.key \
    printf "[dn]\nCN=localhost\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:localhost\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth")
 ```
 
-then add to keychain:
+If using mac, then add it to keychain:
 ```
 sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain ./certificate/localhost.crt
 ```

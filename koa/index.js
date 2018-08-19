@@ -6,11 +6,13 @@ const { certificate, getFiles } = require('../shared');
 
 const { HTTP2_HEADER_PATH } = Http2.constants
 
+// HTTP1
 const http1app = new Koa();
 http1app.use(Static('assets'));
 
 const files = getFiles();
 
+// HTTP2
 const http2app = new Koa();
 http2app.use(async (ctx, next) => {
     const reqPath = ctx.url === '/' ? '/index.html' : ctx.url

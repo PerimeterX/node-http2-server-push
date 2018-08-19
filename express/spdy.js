@@ -3,9 +3,13 @@ const Spdy = require('spdy');
 const Https = require('https');
 const { certificate, getFiles, getFileHttp1 } = require('../shared');
 
+// Don't forget to run fix-spdy.js!
+
+// HTTP1
 const http1app = Express();
 http1app.use(Express.static('assets'));
 
+// HTTP2
 const http2app = Express();
 http2app.use((req, res) => {
     const reqPath = req.url === '/' ? '/index.html' : req.url

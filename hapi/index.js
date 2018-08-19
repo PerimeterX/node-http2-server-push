@@ -11,6 +11,7 @@ const imagesHandler = {
     handler: { directory: { path: 'assets' } }  
 };
 
+// HTTP1
 const getHttp1Server = async () => {
     const server = Hapi.server({
         tls: true,
@@ -22,6 +23,7 @@ const getHttp1Server = async () => {
     return server;
 }
 
+// HTTP2
 const getHttp2Server = async () => {
     const server = Hapi.server({
         tls: true,
